@@ -1,0 +1,7 @@
+﻿How to run the code
+enter the src directory,run python main.py,there will be a complexwarning,it's OK.Then the result will show un in the result folder.
+
+Package in need
+numpy
+pillow
+cmath
