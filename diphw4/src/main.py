@@ -2,6 +2,7 @@ import numpy as np
 from PIL import Image
 from noise_generator import *
 from filter import *
+from he import *
 
 def test_average():
     img = Image.open("../img/task_1.png").convert("L")
@@ -45,15 +46,22 @@ def test_sap():
     noiseImg = Image.fromarray(arr).convert("L")
     Image.fromarray(arithmetic_mean(noiseImg, 3)).convert("L").save("../result/task_2/sap/arithmetic_mean.png")
     Image.fromarray(harmonic_mean(noiseImg, 3)).convert("L").save("../result/task_2/sap/harmonic_mean.png")
-    Image.fromarray(contraharmonic_mean(noiseImg, 3, -1.5)).convert("L").save("../result/task_2/sap/contraharnic_mean.png")
+    Image.fromarray(contraharmonic_mean(noiseImg, 3, 1.5)).convert("L").save("../result/task_2/sap/contraharnic_mean.png")
     Image.fromarray(static_filter(arr, 'min', 3)).convert("L").save("../result/task_2/sap/min.png")
     Image.fromarray(static_filter(arr, 'max', 3)).convert("L").save("../result/task_2/sap/max.png")
     Image.fromarray(static_filter(arr, 'meidan', 3)).convert("L").save("../result/task_2/sap/median.png")
+
+def test_he():
+    img = Image.open("../img/91.png")
+    #equalize_rgb_seperate(img).save("../result/he/he_seperate.png")
+    #equalize_rgb_together(img).save("../result/he/he_together.png")
+    hist(img)
     
 if __name__ == "__main__":
     test_average()
     test_gauss()
     test_salt()
     test_sap()
+    test_he()
 
 

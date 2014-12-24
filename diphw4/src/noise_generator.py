@@ -20,7 +20,7 @@ def addSaltNoise(imgdata):
             return data
     func = np.vectorize(salt)
     arr = func(imgdata)
-    return arr
+    return np.uint8(arr)
     Image.fromarray(arr).convert("L").save("../result/task_2/salt/saltnoise.png")
 
     
@@ -34,7 +34,7 @@ def addsapNoise(imgdata):
             return data
     func = np.vectorize(sap)
     arr = func(imgdata)
-    return arr
+    return np.uint8(arr)
     Image.fromarray(arr).convert("L").save("../result/task_2/sap/sapnoise.png")    
 
             
